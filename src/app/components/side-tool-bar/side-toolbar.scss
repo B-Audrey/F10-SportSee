@@ -1,0 +1,24 @@
+.sidetoolbar-logos {
+  background-color: var(--main-dark-color);
+  width: 117px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+
+  & img {
+    margin: 10px 0;
+  }
+}
+
+.sidetoolbar-copyright {
+  display: block;
+  position: fixed;
+  bottom: 12vh;
+  color: var(--main-light-color);
+  font-size: 0.7rem;
+  transform: rotate(-90deg);
+}
