@@ -1,0 +1,20 @@
+section {
+  border: 1px dotted black;
+  margin: auto;
+  max-width: 1126px;
+  max-height: 779px;
+}
+header {
+  width: 100%;
+}
+h1 {
+    font-size: 3em;
+
+}
+h1 strong {
+  color: var(--main-theme-color);
+}
+h2 {
+  font-weight: 400;
+  font-size: 1.5em;
+}

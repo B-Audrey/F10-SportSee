@@ -1,5 +1,10 @@
-.sidetoolbar-logos {
+.sidetoolbar {
   background-color: var(--main-dark-color);
+  width: 117px;
+  height: 100vh;
+}
+
+.sidetoolbar-logos {
   width: 117px;
   height: 100vh;
   display: flex;

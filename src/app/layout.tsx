@@ -1,13 +1,14 @@
 import type {Metadata} from "next";
 import "./globals.scss";
 import React from 'react';
-import Nav from '@/app/components/nav/nav';
+import Nav from '@/app/shared/components/nav/nav';
 import {Roboto} from 'next/font/google';
-import SideToolBar from '@/app/components/side-tool-bar/side-toolbar';
+import SideToolBar from '@/app/shared/components/side-tool-bar/side-toolbar';
+import Dashboard from '@/app/pages/dashboard';
 
 const roboto = Roboto({
     subsets: ['latin'],
-    weight: '500',
+    weight: ['400', '500'],
     display: 'swap',
 })
 
@@ -18,9 +19,7 @@ export const metadata: Metadata = {
     icons: "favicon.ico",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: Readonly<{
+export default function RootLayout({}: Readonly<{
     children: React.ReactNode;
 }>) {
     return (
@@ -29,7 +28,7 @@ export default function RootLayout({
         <Nav/>
         <main>
             <SideToolBar/>
-            {children}
+            <Dashboard/>
         </main>
         </body>
         </html>

@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import Logo from '../../assets/logo.png';
+import Logo from '../../../assets/logo.png';
 import Image from 'next/image';
 import './nav.scss';
 
-const Nav = () => {
+export default function Nav () {
    return <nav>
         <Image src={Logo} alt={'sportSee logo'} className={'nav-logo'}></Image>
         <Link href={"/"}>Accueil</Link>
@@ -14,4 +14,3 @@ const Nav = () => {
     </nav>
 }
 
-export default Nav;
