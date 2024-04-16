@@ -29,5 +29,5 @@ export default function Dashboard() {
             <div className={'graphs'}>
             </div>
         </section>
-     : null)
+     : <h1>Loading...</h1>)
 }
