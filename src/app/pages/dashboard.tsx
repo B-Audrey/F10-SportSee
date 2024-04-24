@@ -1,40 +1,19 @@
 'use client'
 import '../styles/dashboard.scss';
-import {User} from '@/app/shared/interfaces/user.interface';
-import useApiDataService from '@/app/shared/services/api-user.service';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import InfoComponent from '@/app/shared/components/info/info.component';
 import {Calories, Carbs, Fat, Protein} from '@/app/assets/index';
 import {InfoComponentProps} from '@/app/shared/interfaces/props.interface';
-import useJsonDataService from '@/app/shared/services/json-user.service';
 import Loading from '@/app/shared/components/loading/loading.component';
+import ActivityChart from '@/app/shared/components/activity-chart/activity-chart.component';
+import useGetUser from '@/app/shared/utils/useGetUser';
 
 
 export default function Dashboard() {
 
-    let {getUserById} = useApiDataService()
-    let { getLocalUserById } = useJsonDataService()
-    let [isLoading, setIsLoading] = useState(true)
+    let [isJsonSource, setIsJsonSource] = useState(false)
 
-    let [isJsonSource, setIsJsonSource] = useState(true)
-    let [user, setUser] = useState({} as User);
-
-    useEffect(() => {
-        setIsLoading(true)
-        if (!isJsonSource) {
-            getUserById(18)
-               .then(res => {
-                   setUser(res)
-                   setIsLoading(false)
-               })
-        } else {
-            getLocalUserById(12)
-                .then(res => {
-                    setUser(res)
-                    setIsLoading(false)
-                })
-        }
-    }, [isJsonSource])
+    const {user, loading} = useGetUser(12, isJsonSource)
 
 
     const infoData = [
@@ -50,8 +29,8 @@ export default function Dashboard() {
             icon: Carbs,
             text: "Glucides",
             value: `${user.keyData?.carbohydrateCount.toLocaleString('en-US')}g`,
-       },
-{
+        },
+        {
             icon: Fat,
             text: "Lipides",
             value: `${user.keyData?.carbohydrateCount.toLocaleString('en-US')}g` || '0',
@@ -64,15 +43,15 @@ export default function Dashboard() {
 
     return <>
         <button className={'change-source-button'} onClick={handleRevertJsonSource}>changer la source</button>
-        {!isLoading ?
+        {user.id ?
             <section>
                 <header>
-                    <h1>Bonjour <strong> {user.userInfos.firstName} </strong></h1>
+                    <h1>Bonjour <strong> {user?.userInfos?.firstName} </strong></h1>
                     <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
                 </header>
-                <div className={'stats-bloc'}>
-                    <div className={'graphs'}>
-
+                <div className={'stats-container'}>
+                    <div className={'graphs-bloc'}>
+                        <ActivityChart isJsonSource={isJsonSource} userId={user.id}/>
                     </div>
                     <div className={'infos-bloc'}>
                         {infoData.map((current, index) =>
@@ -83,7 +62,7 @@ export default function Dashboard() {
                 </div>
             </section>
             :
-                <Loading/>
-            }
+            <Loading/>
+        }
     </>
 }

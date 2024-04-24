@@ -5,11 +5,15 @@
 }
 
 nav {
+  position: fixed;
+  z-index: 101;
   height: 91px;
   background-color: var(--main-dark-color);
   display: flex;
   justify-content: space-between;
   padding: 0 10% 0 2%;
+  width: 100vw;
+  box-sizing: border-box;
   align-items: center;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
 

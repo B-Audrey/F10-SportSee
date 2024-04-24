@@ -5,8 +5,10 @@
   height: 100vh;
   width: 100vw;
   position: fixed;
+overflow: hidden ;
+
   background-color: var(--bloc-background-color); //attache un fond blanc
-  z-index: 10; //place le loader devant le reste
+  z-index: 100; //place le loader devant le reste
   animation-fill-mode: forwards; //l'animation reste dans sa position finale soit loader caché
 }
 

@@ -12,4 +12,19 @@ body {
 main {
     display: flex;
 }
+h1 {
+    font-size: 3em;
+    margin: 1em 0 1em 0;
+    font-weight: 500;
+}
+
+h1 strong {
+    color: var(--main-theme-color);
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1.3em;
+    margin-bottom: 1em;
+}
 
