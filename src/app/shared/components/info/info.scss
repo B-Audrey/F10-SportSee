@@ -1,0 +1,32 @@
+.info {
+  padding: 0 1em;
+  display: flex;
+  align-items: center;
+  background-color: var(--bloc-background-color);
+  height: 123px;
+
+  & .info-picto {
+    display: flex;
+    align-items: center;
+    height: 60px;
+  }
+
+  & img {
+    display: block;
+    height: 60px;
+    width: 60px;
+    margin-right: 24px;
+  }
+
+  & .info-text {
+    & h3 {
+      font-size: 1em;
+      margin: 0 0 10px 0;
+    }
+
+    & span {
+      color: var(--light-text-color);
+    }
+  }
+}
+

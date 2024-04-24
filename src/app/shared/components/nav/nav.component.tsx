@@ -1,9 +1,9 @@
 import Link from 'next/link';
-import Logo from '../../../assets/logo.png';
 import Image from 'next/image';
 import './nav.scss';
+import {Logo} from '@/app/assets/index';
 
-export default function Nav () {
+export default function NavComponent () {
    return <nav>
         <Image src={Logo} alt={'sportSee logo'} className={'nav-logo'}></Image>
         <Link href={"/"}>Accueil</Link>

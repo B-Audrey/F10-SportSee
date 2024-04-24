@@ -4,17 +4,43 @@ section {
   max-width: 1126px;
   max-height: 779px;
 }
+
 header {
   width: 100%;
 }
+
 h1 {
-    font-size: 3em;
+  font-size: 3em;
 
 }
+
 h1 strong {
   color: var(--main-theme-color);
 }
+
 h2 {
   font-weight: 400;
   font-size: 1.5em;
+}
+
+.stats-bloc {
+  display: flex;
+  justify-content: right;
+
+}
+
+.infos-bloc {
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1em;
+}
+
+.change-source-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  color: var(--main-theme-color);
 }

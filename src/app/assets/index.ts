@@ -1,1 +1,9 @@
 export * as Logo from './logo.png';
+export * as Bike from './bike.png';
+export * as Swim from './swim.png';
+export * as Weight from './weight.png';
+export * as Yoga from './yoga.png';
+export * as Calories from './calories-icon.png';
+export * as Carbs from './carbs-icon.png';
+export * as Protein from './protein-icon.png';
+export * as Fat from './fat-icon.png';

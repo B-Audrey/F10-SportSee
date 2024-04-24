@@ -1,9 +1,9 @@
 import type {Metadata} from "next";
 import "./globals.scss";
 import React from 'react';
-import Nav from '@/app/shared/components/nav/nav';
+import NavComponent from '@/app/shared/components/nav/nav.component';
 import {Roboto} from 'next/font/google';
-import SideToolBar from '@/app/shared/components/side-tool-bar/side-toolbar';
+import SideToolbarComponent from '@/app/shared/components/side-tool-bar/side-toolbar.component';
 import Dashboard from '@/app/pages/dashboard';
 
 const roboto = Roboto({
@@ -25,9 +25,9 @@ export default function RootLayout({}: Readonly<{
     return (
         <html lang="fr" className={roboto.className}>
         <body>
-        <Nav/>
+        <NavComponent/>
         <main>
-            <SideToolBar/>
+            <SideToolbarComponent/>
             <Dashboard/>
         </main>
         </body>

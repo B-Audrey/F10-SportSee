@@ -6,10 +6,12 @@ export interface User {
         age: number
     },
     todayScore: number
-    keyData: {
-        calorieCount: number
-        proteinCount: number
-        carbohydrateCount: number
-        lipidCount: number
-    }
+    keyData: KeyData
+}
+
+export interface KeyData {
+    calorieCount: number
+    proteinCount: number
+    carbohydrateCount: number
+    lipidCount: number
 }
