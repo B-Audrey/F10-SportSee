@@ -1,0 +1,46 @@
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: var(--bloc-background-color); //attache un fond blanc
+  z-index: 10; //place le loader devant le reste
+  animation-fill-mode: forwards; //l'animation reste dans sa position finale soit loader caché
+}
+
+.loader {
+  position: absolute; //supperpose tous les loaders
+}
+
+.loaderA {
+  width: 100px; //fait un carré
+  height: 100px;
+  border: 2px solid var(--main-theme-color); //ajout un demi cercle en haut
+  animation: turn 5s linear infinite; //défini l'animation spin du bloc sur un tour en 1.5sec
+}
+
+.loaderB {
+  width: 100px; //fait un carré
+  height: 100px;
+  border: 3px solid var(--main-dark-color);
+  animation: turn 3s linear infinite;
+}
+
+.loaderC {
+  width: 100px; //fait un carré
+  height: 100px;
+  border: 2px solid grey;
+  animation: turn 4s linear infinite;
+}
+
+//KEYFRAMES
+@keyframes turn {
+  0% {
+    transform: rotate(0deg); //part d'une rotation de 0%
+  }
+  100% {
+    transform: rotate(360deg); //fait un tour complet à 360 pour arriver à 100%
+  }
+}

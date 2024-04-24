@@ -7,26 +7,31 @@ import InfoComponent from '@/app/shared/components/info/info.component';
 import {Calories, Carbs, Fat, Protein} from '@/app/assets/index';
 import {InfoComponentProps} from '@/app/shared/interfaces/props.interface';
 import useJsonDataService from '@/app/shared/services/json-user.service';
+import Loading from '@/app/shared/components/loading/loading.component';
 
 
 export default function Dashboard() {
 
     let {getUserById} = useApiDataService()
     let { getLocalUserById } = useJsonDataService()
+    let [isLoading, setIsLoading] = useState(true)
 
     let [isJsonSource, setIsJsonSource] = useState(true)
     let [user, setUser] = useState({} as User);
 
     useEffect(() => {
+        setIsLoading(true)
         if (!isJsonSource) {
             getUserById(18)
-                .then(res => {
-                    setUser(res)
-                })
+               .then(res => {
+                   setUser(res)
+                   setIsLoading(false)
+               })
         } else {
             getLocalUserById(12)
                 .then(res => {
                     setUser(res)
+                    setIsLoading(false)
                 })
         }
     }, [isJsonSource])
@@ -59,7 +64,7 @@ export default function Dashboard() {
 
     return <>
         <button className={'change-source-button'} onClick={handleRevertJsonSource}>changer la source</button>
-        {user.id ?
+        {!isLoading ?
             <section>
                 <header>
                     <h1>Bonjour <strong> {user.userInfos.firstName} </strong></h1>
@@ -77,6 +82,8 @@ export default function Dashboard() {
                     </div>
                 </div>
             </section>
-            : <h1>Loading...</h1>}
+            :
+                <Loading/>
+            }
     </>
 }
