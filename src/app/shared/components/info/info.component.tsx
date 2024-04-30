@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export default function InfoComponent({ icon, text, value }: InfoComponentProps) {
 
-    return <div className={'info'}>
+    return <div className={'info box-background'}>
         <div className={'info-picto'}>
             <Image src={icon.default.src} alt={'icon'} width={60} height={60} />
         </div>

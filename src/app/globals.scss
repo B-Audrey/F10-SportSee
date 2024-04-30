@@ -25,6 +25,12 @@ h1 strong {
 h2 {
     font-weight: 400;
     font-size: 1.3em;
-    margin-bottom: 1em;
+    margin-bottom: 3em;
+}
+
+.box-background {
+    background-color: var(--bloc-background-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
 }
 

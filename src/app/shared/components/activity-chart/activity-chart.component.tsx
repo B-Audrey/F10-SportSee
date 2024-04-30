@@ -3,7 +3,7 @@ import useApiDataService from '@/app/shared/services/api-user.service';
 import useJsonDataService from '@/app/shared/services/json-user.service';
 import React, {useEffect, useState} from 'react';
 import {Activity} from '@/app/shared/interfaces/activity.interface';
-import {Bar, BarChart, CartesianGrid, Cell, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
+import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
 
 export default function ActivityChart({isJsonSource, userId}: { isJsonSource: boolean, userId: number }) {
 
@@ -54,7 +54,7 @@ export default function ActivityChart({isJsonSource, userId}: { isJsonSource: bo
         }
     }, [isJsonSource, userId])
     return <>
-        <div className={'activity-chart'}>
+        <div className={'activity-chart box-background'}>
             {/*width and height are set to 100% to make the chart responsive*/}
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart

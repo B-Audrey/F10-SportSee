@@ -7,6 +7,7 @@ import {InfoComponentProps} from '@/app/shared/interfaces/props.interface';
 import Loading from '@/app/shared/components/loading/loading.component';
 import ActivityChart from '@/app/shared/components/activity-chart/activity-chart.component';
 import useGetUser from '@/app/shared/utils/useGetUser';
+import ScoreChart from '@/app/shared/components/score-chart/score-chart';
 
 
 export default function Dashboard() {
@@ -15,6 +16,7 @@ export default function Dashboard() {
 
     const {user, loading} = useGetUser(12, isJsonSource)
 
+    console.log(user)
 
     const infoData = [
         {
@@ -38,7 +40,6 @@ export default function Dashboard() {
 
     const handleRevertJsonSource = () => {
         setIsJsonSource(!isJsonSource);
-        console.log('isJsonSource', isJsonSource)
     }
 
     return <>
@@ -52,6 +53,11 @@ export default function Dashboard() {
                 <div className={'stats-container'}>
                     <div className={'graphs-bloc'}>
                         <ActivityChart isJsonSource={isJsonSource} userId={user.id}/>
+                        <div className={'graph-content'}>
+                            <div>graph 1</div>
+                            <div>graph 2</div>
+                            <ScoreChart todayScore={user.todayScore}/>
+                        </div>
                     </div>
                     <div className={'infos-bloc'}>
                         {infoData.map((current, index) =>

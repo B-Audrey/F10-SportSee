@@ -10,8 +10,6 @@ header {
   width: 100%;
 }
 
-
-
 .change-source-button {
   position: absolute;
   right: 0;
@@ -32,6 +30,13 @@ header {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.graph-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
 .infos-bloc {
   min-width: 250px;
   display: flex;
