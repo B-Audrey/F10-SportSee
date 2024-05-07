@@ -9,8 +9,8 @@ export default function useJsonDataService() {
         return user as User
     }
 
-    async function getLocalUserDailyActivity(id: number) {
-        const activity = data.activitySessions.find((activity) => activity.userId === id)
+    async function getLocalUserDailyActivity(id: string) {
+        const activity = data.activitySessions.find((activity) => activity.userId === parseInt(id))
         return activity as Activity
     }
 

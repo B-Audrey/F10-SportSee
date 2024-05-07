@@ -7,7 +7,7 @@
         "lastName": "Shelby",
         "age": 31
       },
-      "todayScore": 0.79,
+      "todayScore": 0.58,
       "keyData": {
         "calorieCount": 2430,
         "proteinCount": 138,
@@ -22,7 +22,7 @@
         "lastName": "Croft",
         "age": 34
       },
-      "score": 0.3,
+      "todayScore": 0.39,
       "keyData": {
         "calorieCount": 2500,
         "proteinCount": 90,
@@ -94,32 +94,32 @@
         {
           "day": "2020-07-01",
           "kilogram": 70,
-          "calories": 240
+          "calories": 249
         },
         {
           "day": "2020-07-02",
-          "kilogram": 69,
-          "calories": 220
+          "kilogram": 49,
+          "calories": 375
         },
         {
           "day": "2020-07-03",
-          "kilogram": 70,
-          "calories": 280
+          "kilogram": 75,
+          "calories": 205
         },
         {
           "day": "2020-07-04",
           "kilogram": 70,
-          "calories": 500
+          "calories": 641
         },
         {
           "day": "2020-07-05",
-          "kilogram": 69,
-          "calories": 160
+          "kilogram": 79,
+          "calories": 152
         },
         {
           "day": "2020-07-06",
-          "kilogram": 69,
-          "calories": 162
+          "kilogram": 103,
+          "calories": 146
         },
         {
           "day": "2020-07-07",
@@ -135,19 +135,19 @@
       "sessions": [
         {
           "day": 1,
-          "sessionLength": 30
+          "sessionLength": 40
         },
         {
           "day": 2,
-          "sessionLength": 23
+          "sessionLength": 22
         },
         {
           "day": 3,
-          "sessionLength": 45
+          "sessionLength": 57
         },
         {
           "day": 4,
-          "sessionLength": 50
+          "sessionLength": 30
         },
         {
           "day": 5,
@@ -155,11 +155,7 @@
         },
         {
           "day": 6,
-          "sessionLength": 0
-        },
-        {
-          "day": 7,
-          "sessionLength": 60
+          "sessionLength": 45
         }
       ]
     },
@@ -172,7 +168,7 @@
         },
         {
           "day": 2,
-          "sessionLength": 40
+          "sessionLength": 45
         },
         {
           "day": 3,
@@ -180,7 +176,7 @@
         },
         {
           "day": 4,
-          "sessionLength": 30
+          "sessionLength": 40
         },
         {
           "day": 5,
@@ -188,11 +184,15 @@
         },
         {
           "day": 6,
-          "sessionLength": 50
+          "sessionLength": 65
         },
         {
           "day": 7,
-          "sessionLength": 50
+          "sessionLength": 20
+        },
+        {
+          "day": 8,
+          "sessionLength": 51
         }
       ]
     }

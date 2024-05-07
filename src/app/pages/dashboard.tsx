@@ -7,17 +7,25 @@ import {InfoComponentProps} from '@/app/shared/interfaces/props.interface';
 import Loading from '@/app/shared/components/loading/loading.component';
 import ActivityChart from '@/app/shared/components/activity-chart/activity-chart.component';
 import useGetUser from '@/app/shared/utils/useGetUser';
-import ScoreChart from '@/app/shared/components/score-chart/score-chart';
+import ScoreChartComponent from '@/app/shared/components/score-chart/score-chart.component';
+import AverageLineChartComponent from '@/app/shared/components/average-line-chart/average-line-chart.component';
+import {is} from 'immutable';
 
 
 export default function Dashboard() {
 
+    //JSON OR API SOURCE
     let [isJsonSource, setIsJsonSource] = useState(false)
+    const handleRevertJsonSource = () => {
+        setIsJsonSource(!isJsonSource);
+    }
 
-    const {user, loading} = useGetUser(12, isJsonSource)
+    // URL TO GET USER ID
+    const urlParams = new URLSearchParams(window.location.search);
+    const userId = urlParams.get('user') || '12';
 
-    console.log(user)
-
+    //user and loading from useGetUser
+    const {user} = useGetUser(Number(userId), isJsonSource)
     const infoData = [
         {
             icon: Calories,
@@ -36,27 +44,25 @@ export default function Dashboard() {
             icon: Fat,
             text: "Lipides",
             value: `${user.keyData?.carbohydrateCount.toLocaleString('en-US')}g` || '0',
-        }] as InfoComponentProps[]
+        },
+    ] as InfoComponentProps[]
 
-    const handleRevertJsonSource = () => {
-        setIsJsonSource(!isJsonSource);
-    }
 
     return <>
         <button className={'change-source-button'} onClick={handleRevertJsonSource}>changer la source</button>
         {user.id ?
             <section>
                 <header>
-                    <h1>Bonjour <strong> {user?.userInfos?.firstName} </strong></h1>
+                    <h1>Bonjour <strong> {user.userInfos.firstName} </strong></h1>
                     <h2>Félicitation ! Vous avez explosé vos objectifs hier 👏</h2>
                 </header>
                 <div className={'stats-container'}>
                     <div className={'graphs-bloc'}>
-                        <ActivityChart isJsonSource={isJsonSource} userId={user.id}/>
+                        <ActivityChart isJsonSource={isJsonSource} userId={userId}/>
                         <div className={'graph-content'}>
-                            <div>graph 1</div>
+                            <AverageLineChartComponent userId={userId} isJsonSource={isJsonSource}/>
                             <div>graph 2</div>
-                            <ScoreChart todayScore={user.todayScore}/>
+                            <ScoreChartComponent userId={userId} isJsonSource={isJsonSource}/>
                         </div>
                     </div>
                     <div className={'infos-bloc'}>

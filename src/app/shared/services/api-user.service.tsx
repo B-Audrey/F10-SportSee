@@ -5,25 +5,25 @@ import {Performances, Stats} from '@/app/shared/interfaces/stats.interface';
 export default function useApiDataService() {
     const url = 'http://localhost:3300/user';
 
-    async function getUserById(id: number) {
+    async function getUserById(id: string) {
         const res = await fetch(`${url}/${id}`);
         const json = await res.json();
         return json.data as User
     }
 
-    async function getUserDailyActivity(id: number) {
+    async function getUserDailyActivity(id: string) {
         const res = await fetch(`${url}/${id}/activity`);
         const json = await res.json();
         return json.data as Activity
     }
 
-    async function getUserAveragePerSession(id: number) {
+    async function getUserAveragePerSession(id: string) {
         const res = await fetch(`${url}/${id}/average-sessions`);
         const json = await res.json();
         return json.data as Stats
     }
 
-    async function getUserPerformance(id: number) {
+    async function getUserPerformance(id: string) {
         const res = await fetch(`${url}/${id}/performance`);
         const json = await res.json();
         return json.data as Performances

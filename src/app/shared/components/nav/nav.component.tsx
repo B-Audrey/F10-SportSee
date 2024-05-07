@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import './nav.scss';
+import './nav.component.scss';
 import {Logo} from '@/app/assets/index';
 
 export default function NavComponent () {

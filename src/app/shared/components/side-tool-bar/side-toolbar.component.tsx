@@ -1,4 +1,4 @@
-import './side-toolbar.scss'
+import './side-toolbar.component.scss'
 import Image from 'next/image';
 import {Bike, Swim, Weight, Yoga} from '@/app/assets/index';
 

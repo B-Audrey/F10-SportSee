@@ -1,4 +1,4 @@
-import './info.scss'
+import './info.component.scss'
 import {InfoComponentProps} from '@/app/shared/interfaces/props.interface';
 import Image from 'next/image';
 
