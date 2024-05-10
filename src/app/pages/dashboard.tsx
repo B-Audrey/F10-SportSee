@@ -9,7 +9,7 @@ import ActivityChart from '@/app/shared/components/activity-chart/activity-chart
 import useGetUser from '@/app/shared/utils/useGetUser';
 import ScoreChartComponent from '@/app/shared/components/score-chart/score-chart.component';
 import AverageLineChartComponent from '@/app/shared/components/average-line-chart/average-line-chart.component';
-import {is} from 'immutable';
+import PerformancesChartComponent from '@/app/shared/components/performances-chart/performances-chart.component';
 
 
 export default function Dashboard() {
@@ -61,7 +61,7 @@ export default function Dashboard() {
                         <ActivityChart isJsonSource={isJsonSource} userId={userId}/>
                         <div className={'graph-content'}>
                             <AverageLineChartComponent userId={userId} isJsonSource={isJsonSource}/>
-                            <div>graph 2</div>
+                            <PerformancesChartComponent userId={userId} isJsonSource={isJsonSource}/>
                             <ScoreChartComponent userId={userId} isJsonSource={isJsonSource}/>
                         </div>
                     </div>

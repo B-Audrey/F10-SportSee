@@ -2,24 +2,26 @@ import data from '@/app/data.json';
 import {User} from '@/app/shared/interfaces/user.interface';
 import {Activity} from '@/app/shared/interfaces/activity.interface';
 import {Average} from '@/app/shared/interfaces/average.interface';
+import {Performances} from '@/app/shared/interfaces/performances.interface';
 
 export default function useJsonDataService() {
 
     async function getLocalUserById(id: string) {
-        const user = data.users.find((user) => user.id === parseInt(id))
-        return user as User
+        return data.users.find((user) => user.id === parseInt(id)) as User
     }
 
     async function getLocalUserDailyActivity(id: string) {
-        const activity = data.activitySessions.find((activity) => activity.userId === parseInt(id))
-        return activity as Activity
+        return data.activitySessions.find((activity) => activity.userId === parseInt(id)) as Activity
     }
 
     async function getLocalUserAveragePerSession(id: string) {
-        const average = data.average.find((average) => average.userId === parseInt(id))
-        return average as Average
+        return data.average.find((average) => average.userId === parseInt(id)) as unknown as Average
+    }
+
+    async function getLocalUserPerformances(id: string) {
+        return data.performance.find((performance) => performance.userId === parseInt(id)) as Performances
     }
 
 
-    return {getLocalUserById, getLocalUserDailyActivity, getLocalUserAveragePerSession}
+    return {getLocalUserById, getLocalUserDailyActivity, getLocalUserAveragePerSession, getLocalUserPerformances}
 }

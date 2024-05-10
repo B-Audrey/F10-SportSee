@@ -1,7 +1,7 @@
 import './average-line-chart.component.scss'
 import {ConfigProps} from '@/app/shared/interfaces/config-props.interface';
 import useGetAverage from '@/app/shared/utils/useGetAverage';
-import {Line, LineChart, Tooltip, XAxis, YAxis} from 'recharts';
+import {Line, LineChart, ResponsiveContainer, Tooltip, XAxis} from 'recharts';
 import React from 'react';
 import AverageLineChartTooltipComponent
     from '@/app/shared/components/average-line-chart/average-line-chart-tooltip.component';
@@ -22,9 +22,10 @@ export default function AverageLineChartComponent({userId, isJsonSource}: Config
     };
 
     const {average} = useGetAverage(userId, isJsonSource)
-    console.log(average)
 
-    return <div className={'average-line-chart box-background'}>
+    return <div className={'box-background average-line-container'}>
+        <ResponsiveContainer width="100%" height="100%">
+
         <LineChart width={200} height={200} data={average.sessions} margin={{
             top: 70,
             right: 10,
@@ -65,5 +66,6 @@ export default function AverageLineChartComponent({userId, isJsonSource}: Config
                 content={<AverageLineChartTooltipComponent/>}
                 cursor={<CustomCursor/>}/>
         </LineChart>
+        </ResponsiveContainer>
     </div>
 }

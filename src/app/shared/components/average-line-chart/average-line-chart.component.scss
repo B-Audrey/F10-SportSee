@@ -1,8 +1,9 @@
-.average-line-chart {
+.average-line-container {
   background-color: var(--main-theme-color);
   box-sizing: border-box;
-  width: 200px;
-  height: 200px;
+  width: 100%;
+  min-width: 200px;
+  height: 250px;
 }
 .average-line-chart-tooltip-container {
   background-color: var(--main-light-color);
