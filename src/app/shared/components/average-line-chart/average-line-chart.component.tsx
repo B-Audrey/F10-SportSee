@@ -15,7 +15,7 @@ export default function AverageLineChartComponent({userId, isJsonSource}: Config
             <rect
                 x={x}
                 width={width}
-                height={200}
+                height="100%"
                 fill="rgba(0, 0, 0, 0.1)"
             />
         );

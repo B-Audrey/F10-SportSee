@@ -48,7 +48,7 @@ export default function Dashboard() {
     ] as InfoProps[]
 
 
-    return <>
+    return <div className={'main-content'}>
         <button className={'change-source-button'} onClick={handleRevertJsonSource}>changer la source</button>
         {user.id ?
             <section>
@@ -76,5 +76,5 @@ export default function Dashboard() {
             :
             <Loading/>
         }
-    </>
+    </div>
 }
