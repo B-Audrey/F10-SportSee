@@ -1,29 +1,18 @@
 import React from 'react';
+import './activity-chart.component.scss'
 
-export default function ActivityChartTooltipComponent ({active, payload}: any) {
+
+export default function ActivityChartTooltipComponent({active, payload}: any) {
     if (active && payload && payload.length) {
         return (
-            <div style={{
-                backgroundColor: 'red',
-                padding: '10px',
-                height: '63px',
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'center'
-            }}>
+            <div className={'activity-chart-tooltip-container'}>
                 {payload.map((item: any) => (
-                    <p key={item.dataKey} style={{
-                        fontSize: '7px',
-                        textAlign: 'center',
-                        color: 'white',
-                        display: 'block',
-                        margin: '2em 0'
-                    }}>
+                    <p key={item.dataKey} className={'activity-chart-tooltip-content'}>
                         {`${item.value}${item.name === 'kilogram' ? 'kg' : 'kCal'}`}
                     </p>
                 ))}
             </div>
         );
     }
-    return (<div> pas de données à afficher</div>);
+    return (<span>pas de données</span>);
 };

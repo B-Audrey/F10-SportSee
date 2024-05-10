@@ -1,4 +1,4 @@
-export interface ComponentConfig{
+export interface ConfigProps {
     userId: string;
     isJsonSource: boolean;
 }

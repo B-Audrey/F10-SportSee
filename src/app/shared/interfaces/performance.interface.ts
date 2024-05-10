@@ -1,13 +1,3 @@
-export interface Stats {
-    sessions: Average[]
-    userId: number
-}
-
-export interface Average {
-    day: number
-    sessionLength: number
-}
-
 export interface Performances {
     data : {value: number, kind: number}[]
     kind: {

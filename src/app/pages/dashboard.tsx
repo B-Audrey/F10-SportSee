@@ -3,7 +3,7 @@ import '../styles/dashboard.scss';
 import React, {useState} from 'react';
 import InfoComponent from '@/app/shared/components/info/info.component';
 import {Calories, Carbs, Fat, Protein} from '@/app/assets/index';
-import {InfoComponentProps} from '@/app/shared/interfaces/props.interface';
+import {InfoProps} from '@/app/shared/interfaces/info-props.interface';
 import Loading from '@/app/shared/components/loading/loading.component';
 import ActivityChart from '@/app/shared/components/activity-chart/activity-chart.component';
 import useGetUser from '@/app/shared/utils/useGetUser';
@@ -25,7 +25,7 @@ export default function Dashboard() {
     const userId = urlParams.get('user') || '12';
 
     //user and loading from useGetUser
-    const {user} = useGetUser(Number(userId), isJsonSource)
+    const {user} = useGetUser(userId, isJsonSource)
     const infoData = [
         {
             icon: Calories,
@@ -45,7 +45,7 @@ export default function Dashboard() {
             text: "Lipides",
             value: `${user.keyData?.carbohydrateCount.toLocaleString('en-US')}g` || '0',
         },
-    ] as InfoComponentProps[]
+    ] as InfoProps[]
 
 
     return <>

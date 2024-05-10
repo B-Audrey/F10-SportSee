@@ -1,0 +1,17 @@
+.average-line-chart {
+  background-color: var(--main-theme-color);
+  box-sizing: border-box;
+  width: 200px;
+  height: 200px;
+}
+.average-line-chart-tooltip-container {
+  background-color: var(--main-light-color);
+  height: 30px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  & p {
+    font-size: 10px;
+  }
+}

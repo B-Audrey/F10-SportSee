@@ -5,9 +5,9 @@ import React, {useEffect, useState} from 'react';
 import {Activity} from '@/app/shared/interfaces/activity.interface';
 import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis} from 'recharts';
 import ActivityChartTooltipComponent from '@/app/shared/components/activity-chart/activity-chart-tooltip.component';
-import {ComponentConfig} from '@/app/shared/interfaces/component-config.interface';
+import {ConfigProps} from '@/app/shared/interfaces/config-props.interface';
 
-export default function ActivityChart({userId, isJsonSource}: ComponentConfig ) {
+export default function ActivityChart({userId, isJsonSource}: ConfigProps ) {
 
     let {getUserDailyActivity} = useApiDataService()
     let {getLocalUserDailyActivity} = useJsonDataService()
@@ -30,7 +30,7 @@ export default function ActivityChart({userId, isJsonSource}: ComponentConfig ) 
 
     return <>
         <div className={'activity-chart box-background'}>
-            {/*width and height are set to 100% to make the chart responsive*/}
+            {/*width and height are set to 100% to make the chart responsive because there is only one*/}
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                     width={500}
@@ -43,13 +43,13 @@ export default function ActivityChart({userId, isJsonSource}: ComponentConfig ) 
                         bottom: 30,
                     }}
                 >
-                    {/* Add background grid, mais it dotted, remove vertical lines and apply color */}
+                    {/* Add background grid, make it dotted, remove vertical lines and apply color */}
                     <CartesianGrid strokeDasharray="1 2" vertical={false} stroke="#DEDEDE" />
                     {/* text to make the title*/}
                     <text
                         x={30} // x position of the text is same as the left margin
                         y={45} // y position of the text is same as the top margin
-                        style={{fontSize: '16px', fontWeight: 'bold', color: "#20253A"}}
+                        style={{fontSize: '16px', fontWeight: 'bold', fill: "#20253A"}}
                     >
                         Activité quotidienne
                     </text>

@@ -1,9 +1,9 @@
 import './info.component.scss'
-import {InfoComponentProps} from '@/app/shared/interfaces/props.interface';
+import {InfoProps} from '@/app/shared/interfaces/info-props.interface';
 import Image from 'next/image';
 
 
-export default function InfoComponent({ icon, text, value }: InfoComponentProps) {
+export default function InfoComponent({ icon, text, value }: InfoProps) {
 
     return <div className={'info box-background'}>
         <div className={'info-picto'}>

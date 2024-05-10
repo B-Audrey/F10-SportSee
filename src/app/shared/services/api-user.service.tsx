@@ -1,6 +1,7 @@
 import {User} from '@/app/shared/interfaces/user.interface';
 import {Activity} from '@/app/shared/interfaces/activity.interface';
-import {Performances, Stats} from '@/app/shared/interfaces/stats.interface';
+import {Average} from '@/app/shared/interfaces/average.interface';
+import {Performances} from '@/app/shared/interfaces/performance.interface';
 
 export default function useApiDataService() {
     const url = 'http://localhost:3300/user';
@@ -20,7 +21,7 @@ export default function useApiDataService() {
     async function getUserAveragePerSession(id: string) {
         const res = await fetch(`${url}/${id}/average-sessions`);
         const json = await res.json();
-        return json.data as Stats
+        return json.data as Average
     }
 
     async function getUserPerformance(id: string) {

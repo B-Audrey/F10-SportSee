@@ -3,11 +3,11 @@ import {Legend, Pie, PieChart} from 'recharts';
 import React, {useEffect, useState} from 'react';
 import useGetUser from '@/app/shared/utils/useGetUser';
 import ScoreChartLegendComponent from '@/app/shared/components/score-chart/score-chart-legend.component';
-import {ComponentConfig} from '@/app/shared/interfaces/component-config.interface';
+import {ConfigProps} from '@/app/shared/interfaces/config-props.interface';
 
-export default function ScoreChartComponent({userId, isJsonSource}: ComponentConfig) {
+export default function ScoreChartComponent({userId, isJsonSource}: ConfigProps) {
 
-    const {user} = useGetUser(Number(userId), isJsonSource)
+    const {user} = useGetUser(userId, isJsonSource)
     const [todayScore, setTodayScore] = useState(0)
 
     useEffect(() => {
