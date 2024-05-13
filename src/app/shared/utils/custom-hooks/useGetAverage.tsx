@@ -13,12 +13,12 @@ const useGetAverage = (userId: string, isJsonSource: boolean = false) => {
 
     const fetchAverage = async (id: string = '12') => {
         const data = await getUserAveragePerSession(id);
-        data.sessions.map((session) => session.day = convertDay(session.day.toString()))
+        data.sessions.map((session) => session.day = convertDay(session.day?.toString()))
         setAverage(data);
     }
     const fetchLocalAverage = async (id: string = '12') => {
         const data = await getLocalUserAveragePerSession(id);
-        data.sessions.map((session) => session.day = convertDay(session.day.toString()))
+        data.sessions.map((session) => session.day = convertDay(session.day?.toString()))
         setAverage(data)
     }
 

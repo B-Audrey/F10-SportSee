@@ -1,17 +1,14 @@
 import './performances-chart.component.scss';
 import {ConfigProps} from '@/app/shared/interfaces/config-props.interface';
-import useGetPerformances from '@/app/shared/utils/useGetPerformances';
+import useGetPerformances from '@/app/shared/utils/custom-hooks/useGetPerformances';
 import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer} from 'recharts';
-import {translate} from '@/app/shared/utils/translate';
+import {formatePerformance} from '@/app/shared/utils/formatter';
 
 
 export default function PerformancesChartComponent({userId, isJsonSource}: ConfigProps) {
     const {performances} = useGetPerformances(userId, isJsonSource);
 
-    const formattedData: FormattedDataItem[] = (performances.data || []).map((item) => ({
-        value: item.value,
-        kind: translate(performances.kind[item.kind.toString()] || 'Unknown'),
-    })).reverse();
+    const formattedData: FormattedDataItem[] = formatePerformance(performances);
 
     return (
         <ResponsiveContainer width="100%" height="100%" className={'performance-chart-container'}>

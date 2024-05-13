@@ -1,6 +1,6 @@
 import './average-line-chart.component.scss'
 import {ConfigProps} from '@/app/shared/interfaces/config-props.interface';
-import useGetAverage from '@/app/shared/utils/useGetAverage';
+import useGetAverage from '@/app/shared/utils/custom-hooks/useGetAverage';
 import {Line, LineChart, ResponsiveContainer, Tooltip, XAxis} from 'recharts';
 import React from 'react';
 import AverageLineChartTooltipComponent
@@ -8,7 +8,7 @@ import AverageLineChartTooltipComponent
 
 export default function AverageLineChartComponent({userId, isJsonSource}: ConfigProps) {
 
-    const CustomCursor = ({ points, width, height, stroke }: any) => {
+    const CustomCursor = ({points, width}: any) => {
         const { x } = points[0];
 
         return (

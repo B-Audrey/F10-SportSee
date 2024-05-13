@@ -5,7 +5,8 @@ export interface User {
         lastName: string
         age: number
     },
-    todayScore: number
+    todayScore?: number
+    score?: number
     keyData: KeyData
 }
 

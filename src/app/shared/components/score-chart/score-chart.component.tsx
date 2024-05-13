@@ -1,9 +1,10 @@
 import './score-chart.component.scss'
 import {Legend, Pie, PieChart, ResponsiveContainer} from 'recharts';
 import React, {useEffect, useState} from 'react';
-import useGetUser from '@/app/shared/utils/useGetUser';
+import useGetUser from '@/app/shared/utils/custom-hooks/useGetUser';
 import ScoreChartLegendComponent from '@/app/shared/components/score-chart/score-chart-legend.component';
 import {ConfigProps} from '@/app/shared/interfaces/config-props.interface';
+import {formateScore} from '@/app/shared/utils/formatter';
 
 export default function ScoreChartComponent({userId, isJsonSource}: ConfigProps) {
 
@@ -11,13 +12,17 @@ export default function ScoreChartComponent({userId, isJsonSource}: ConfigProps)
     const [todayScore, setTodayScore] = useState(0)
 
     useEffect(() => {
-        setTodayScore(user.todayScore || 0) //TODO : Warn backend team : score or todayScore ? user 12 and 18 are differents
+        setTodayScore(formateScore(user))
     }, [user]);
 
 
 
     const startAngle = 180 // starting at 180 degrees : 9 o'clock
-    const endAngle = startAngle - 360 * todayScore; // calculate the end angle based on the scor
+    const endAngle = startAngle - 360 * todayScore; // calculate the end angle based on the score
+
+    console.log('todayScore', todayScore)
+    console.log('startAngle', startAngle)
+    console.log('endAngle', endAngle)
 
     return <div className={'box-background pie-chart-container'}>
         <ResponsiveContainer width="100%" height="100%">

@@ -3,18 +3,18 @@ import useApiDataService from '@/app/shared/services/api-user.service';
 import useJsonDataService from '@/app/shared/services/json-user.service';
 import {User} from '@/app/shared/interfaces/user.interface';
 
-const useGetUser = (userId:string, isJsonSource:boolean = false) => {
+const useGetUser = (userId: string, isJsonSource: boolean = false) => {
 
     let {getUserById} = useApiDataService()
     let {getLocalUserById} = useJsonDataService()
 
     const [state, setState] = useState({user : {} as User, loading: true} );
 
-    const fetchUser = async (id:string = '12') => {
+    const fetchUser = async (id: string) => {
         const data = await getUserById(id);
         setState( (prev) => ({...prev, user: data}))
     }
-    const fetchLocalUser = async (id:string = '12') => {
+    const fetchLocalUser = async (id: string) => {
         const data = await getLocalUserById(id);
         setState( (prev) => ({...prev, user: data}))
     }
@@ -33,7 +33,7 @@ const useGetUser = (userId:string, isJsonSource:boolean = false) => {
 
     // useEffect to set loading to false when user is fetched, used when the user is set in the state
     useEffect(() => {
-        if(state.user.id) {
+        if (state.user?.id) {
             setState( (prev) => ({...prev, loading: false}))
         }
     }, [state.user]);

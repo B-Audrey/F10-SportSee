@@ -1,36 +1,47 @@
 'use client'
 import '../styles/dashboard.scss';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import InfoComponent from '@/app/shared/components/info/info.component';
 import {Calories, Carbs, Fat, Protein} from '@/app/assets/index';
 import {InfoProps} from '@/app/shared/interfaces/info-props.interface';
 import Loading from '@/app/shared/components/loading/loading.component';
 import ActivityChart from '@/app/shared/components/activity-chart/activity-chart.component';
-import useGetUser from '@/app/shared/utils/useGetUser';
+import useGetUser from '@/app/shared/utils/custom-hooks/useGetUser';
 import ScoreChartComponent from '@/app/shared/components/score-chart/score-chart.component';
 import AverageLineChartComponent from '@/app/shared/components/average-line-chart/average-line-chart.component';
 import PerformancesChartComponent from '@/app/shared/components/performances-chart/performances-chart.component';
+import NotFound from '@/app/shared/components/not-found/not-found';
 
 
 export default function Dashboard() {
 
-    //JSON OR API SOURCE
     let [isJsonSource, setIsJsonSource] = useState(false)
+    let [userId, setUserId] = useState('')
+
+
+    useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get('user') || '';
+        setUserId(id);
+
+    }, []);
+
+    //user and loading from useGetUser
+    const {user} = useGetUser(userId, isJsonSource)
+
+    if (!user) {
+        return <NotFound/>
+    }
+
     const handleRevertJsonSource = () => {
         setIsJsonSource(!isJsonSource);
     }
 
-    // URL TO GET USER ID
-    const urlParams = new URLSearchParams(window.location.search);
-    const userId = urlParams.get('user') || '12';
-
-    //user and loading from useGetUser
-    const {user} = useGetUser(userId, isJsonSource)
     const infoData = [
         {
             icon: Calories,
             text: "Calories",
-            value: `${user.keyData?.calorieCount.toLocaleString('en-US')}KCal`, // use locale string en style to insert come into the numbers
+            value: `${user.keyData?.calorieCount.toLocaleString('en-US')}KCal`, // use toLocaleString with en-US style to insert come into the numbers
         }, {
             icon: Protein,
             text: "Protéines",

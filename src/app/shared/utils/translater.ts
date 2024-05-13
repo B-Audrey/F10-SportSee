@@ -1,4 +1,4 @@
-export const translate = (text: string): string => {
+export const translater = (text: string): string => {
     text.toString().trim().toLowerCase()
     const translations = new Map()
     translations.set('cardio', 'Cardio')
