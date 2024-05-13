@@ -1,4 +1,7 @@
-
+/**
+ * Convert day from number to string
+ * @param day
+ */
 export const convertDay = (day: string): string => {
     const days  = new Map ()
     days.set('1', "L")

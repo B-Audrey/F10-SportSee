@@ -25,7 +25,7 @@ header {
 .stats-container {
   display: flex;
   justify-content: space-between;
-  gap: 30px
+  gap: 30px;
 }
 
 .graphs-bloc {
@@ -33,12 +33,13 @@ header {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 30px;
 }
 
 .graph-content {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
 }
 
 .infos-bloc {

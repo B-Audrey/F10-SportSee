@@ -1,6 +1,10 @@
 import {translater} from '@/app/shared/utils/translater';
 import {User} from '@/app/shared/interfaces/user.interface';
 
+/**
+ * formatePerformance function to format the performances data in an array to render
+ * @param performances
+ */
 export function formatePerformance(performances: Performances) {
     if (!performances?.data) {
         return [];
@@ -12,7 +16,10 @@ export function formatePerformance(performances: Performances) {
         })).reverse();
 }
 
-
+/**
+ * formateAverage function to implement todayScore even if the source model is with score
+ * @param user
+ */
 export function formateScore(user: User) {
     user.todayScore = user.todayScore ? user.todayScore : user.score
     return user.todayScore || 0

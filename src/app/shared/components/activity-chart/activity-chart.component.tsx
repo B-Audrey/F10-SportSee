@@ -7,6 +7,11 @@ import {Bar, BarChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxi
 import ActivityChartTooltipComponent from '@/app/shared/components/activity-chart/activity-chart-tooltip.component';
 import {ConfigProps} from '@/app/shared/interfaces/config-props.interface';
 
+/**
+ * ActivityChart functional component to display the activity chart
+ * @param userId
+ * @param isJsonSource
+ */
 export default function ActivityChart({userId, isJsonSource}: ConfigProps ) {
 
     let {getUserDailyActivity} = useApiDataService()
@@ -14,6 +19,9 @@ export default function ActivityChart({userId, isJsonSource}: ConfigProps ) {
 
     let [activity, setActivity] = useState({} as Activity)
 
+    /**
+     * Fetch the user daily activity from the API or the JSON file
+     */
     useEffect(() => {
         if (!isJsonSource) {
             getUserDailyActivity(userId)
@@ -30,7 +38,6 @@ export default function ActivityChart({userId, isJsonSource}: ConfigProps ) {
 
     return <>
         <div className={'activity-chart box-background'}>
-            {/*width and height are set to 100% to make the chart responsive because there is only one*/}
             <ResponsiveContainer width="100%" height="100%">
                 <BarChart
                     width={500}

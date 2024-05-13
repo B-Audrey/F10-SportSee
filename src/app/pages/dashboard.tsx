@@ -12,31 +12,46 @@ import AverageLineChartComponent from '@/app/shared/components/average-line-char
 import PerformancesChartComponent from '@/app/shared/components/performances-chart/performances-chart.component';
 import NotFound from '@/app/shared/components/not-found/not-found';
 
-
+/**
+ * Dashboard functional component to display the user dashboard
+ * this is the actual main page of the application
+ */
 export default function Dashboard() {
 
     let [isJsonSource, setIsJsonSource] = useState(false)
     let [userId, setUserId] = useState('')
 
-
+    /**
+     * useEffect to get the user id from the url only at the first render
+     * and set it in the state
+     */
     useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
+        const urlParams = new URLSearchParams(window.location.search);
         const id = urlParams.get('user') || '';
         setUserId(id);
-
     }, []);
 
-    //user and loading from useGetUser
+    /**
+     * useGetUser custom hook to get the user data
+     * @param userId
+     * @param isJsonSource
+     */
     const {user} = useGetUser(userId, isJsonSource)
 
+    // if the user is not found, display the NotFound component
     if (!user) {
         return <NotFound/>
     }
 
+    /**
+     * handleRevertJsonSource function to change the source of the data when button is clicked
+     */
     const handleRevertJsonSource = () => {
         setIsJsonSource(!isJsonSource);
     }
 
+
+    // infoData array of objects to display the user key data
     const infoData = [
         {
             icon: Calories,

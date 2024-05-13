@@ -4,10 +4,14 @@ import useGetPerformances from '@/app/shared/utils/custom-hooks/useGetPerformanc
 import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, ResponsiveContainer} from 'recharts';
 import {formatePerformance} from '@/app/shared/utils/formatter';
 
-
+/**
+ * PerformancesChartComponent functional component to display the performances chart
+ * @param userId
+ * @param isJsonSource
+ */
 export default function PerformancesChartComponent({userId, isJsonSource}: ConfigProps) {
-    const {performances} = useGetPerformances(userId, isJsonSource);
 
+    const {performances} = useGetPerformances(userId, isJsonSource);
     const formattedData: FormattedDataItem[] = formatePerformance(performances);
 
     return (
@@ -15,10 +19,17 @@ export default function PerformancesChartComponent({userId, isJsonSource}: Confi
             <RadarChart outerRadius={80} data={formattedData}
                         margin={{top: 5, right: 5, bottom: 5, left: 5}}
             >
+                {/* PolarGrid to add a polygonal grid to the radar chart but not the lines from middle */}
                 <PolarGrid gridType="polygon" stroke="#ffffff" radialLines={false}/>
+
+                {/* PolarAngleAxis to show categories on the perimeter of the radar */}
                 <PolarAngleAxis dataKey="kind" stroke="#ffffff" tickLine={false} tick={{fontSize: 12}}/>
-                <PolarRadiusAxis stroke="#ffffff" tick={false} axisLine={false}/>
-                <Radar name="Performance" dataKey="value" stroke="#ff0000" fill="#ff0000" fillOpacity={0.6}/>
+
+                {/* PolarRadiusAxis to configure the radial axis (not visible in this configuration so set to false) */}
+                <PolarRadiusAxis tick={false} axisLine={false}/>
+
+                {/* Radar component to plot the performance data, styled with stroke and fill */}
+                <Radar dataKey="value" stroke="#ff0000" fill="#ff0000" fillOpacity={0.6}/>
             </RadarChart>
         </ResponsiveContainer>
     );

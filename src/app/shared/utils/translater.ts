@@ -1,3 +1,8 @@
+/**
+ * Translates the text to the corresponding value
+ * if the text is not found, it returns an empty string
+ * @param text
+ */
 export const translater = (text: string): string => {
     text.toString().trim().toLowerCase()
     const translations = new Map()
@@ -7,7 +12,7 @@ export const translater = (text: string): string => {
     translations.set('strength', 'Force')
     translations.set('speed', 'Vitesse')
     translations.set('intensity', 'Intensité')
-    translations.set('unknown', 'Pas de valeur')
+    translations.set('unknown', '')
     return translations.get(text)
 }
 

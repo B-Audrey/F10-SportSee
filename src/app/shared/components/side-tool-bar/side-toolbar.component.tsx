@@ -2,6 +2,9 @@ import './side-toolbar.component.scss'
 import Image from 'next/image';
 import {Bike, Swim, Weight, Yoga} from '@/app/assets/index';
 
+/**
+ * SideToolbarComponent functional component to display the side toolbar
+ */
 export default function SideToolbarComponent() {
     return <div className={'sidetoolbar'}>
         <div className={'sidetoolbar-logos'}>
