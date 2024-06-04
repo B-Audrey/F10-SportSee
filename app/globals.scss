@@ -1,0 +1,38 @@
+:root {
+    --main-dark-color: #020203;
+    --main-light-color: #fff;
+    --main-theme-color: #FF0101;
+    --bloc-background-color: #FBFBFB;
+    --light-text-color: #74798C;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    display: flex;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 1em 0 1em 0;
+    font-weight: 500;
+}
+
+h1 strong {
+    color: var(--main-theme-color);
+}
+
+h2 {
+    font-weight: 400;
+    font-size: 1.3em;
+    margin-bottom: 3em;
+}
+
+.box-background {
+    background-color: var(--bloc-background-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+}
+
