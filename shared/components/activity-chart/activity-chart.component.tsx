@@ -15,7 +15,7 @@ import ActivityChartTooltipComponent from './activity-chart-tooltip.component';
  * @param userId
  * @param isJsonSource
  */
-export default function ActivityChart({userId, isJsonSource}: ConfigProps ) {
+export default function ActivityChart({userId, isJsonSource}: ConfigProps) {
 
     let {getUserDailyActivity} = useApiDataService()
     let {getLocalUserDailyActivity} = useJsonDataService()
@@ -54,7 +54,7 @@ export default function ActivityChart({userId, isJsonSource}: ConfigProps ) {
                     }}
                 >
                     {/* Add background grid, make it dotted, remove vertical lines and apply color */}
-                    <CartesianGrid strokeDasharray="1 2" vertical={false} stroke="#DEDEDE" />
+                    <CartesianGrid strokeDasharray="1 2" vertical={false} stroke="#DEDEDE"/>
                     {/* text to make the title*/}
                     <text
                         x={30} // x position of the text is same as the left margin
@@ -81,7 +81,7 @@ export default function ActivityChart({userId, isJsonSource}: ConfigProps ) {
                            stroke="transparent" orientation="right"/>
                     <Tooltip content={<ActivityChartTooltipComponent/>}/>
                     {/* Custom the grey bars, add radius to the top */}
-                    <Bar dataKey="kilogram" fill="#282D30" barSize={5} radius={[5, 5, 0, 0]} />
+                    <Bar dataKey="kilogram" fill="#282D30" barSize={5} radius={[5, 5, 0, 0]}/>
                     {/* Custom the red bars, add radius to the top */}
                     <Bar dataKey="calories" fill="#FF0101" barSize={5} radius={[5, 5, 0, 0]}/>
                 </BarChart>
@@ -91,9 +91,6 @@ export default function ActivityChart({userId, isJsonSource}: ConfigProps ) {
 }
 
 
-//TODO : think about "nmp i" when this Rechart issue will be released :
+//TODO : think about "nmp i" when this Rechart issue will be released,
 // https://github.com/recharts/recharts/issues/3615
-
-
-
-
+// V 2.13.0 alpha has been used for now

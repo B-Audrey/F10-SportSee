@@ -1,11 +1,9 @@
 export interface Average {
-    sessions: Sessions[]
-    userId: number
+    sessions: Sessions[];
+    userId: number;
 }
 
 export interface Sessions {
-    day: string
-    sessionLength: number
+    day: string;
+    sessionLength: number;
 }
-
-

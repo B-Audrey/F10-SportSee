@@ -5,11 +5,11 @@
 }
 
 .recharts-legend-item-text {
-  color: #74798C !important; //need to force color here
+  color: #74798c !important; //need to force color here
 }
 
 .activity-chart-tooltip-container {
-  background-color:  var(--main-theme-color);
+  background-color: var(--main-theme-color);
   padding: 10px;
   height: 63px;
   display: flex;
@@ -22,5 +22,5 @@
   text-align: center;
   color: white;
   display: block;
-  margin: 2em 0
+  margin: 2em 0;
 }
