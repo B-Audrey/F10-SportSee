@@ -11,5 +11,5 @@ export const convertDay = (day: string): string => {
     days.set('5', 'V');
     days.set('6', 'S');
     days.set('7', 'D');
-    return days.get(day);
+    return days.get(day) || day;
 };

@@ -1,8 +1,9 @@
 import data from '@/data.json';
-import {User} from '@/shared/interfaces/user.interface';
-import {Activity} from '@/shared/interfaces/activity.interface';
-import {Average} from '@/shared/interfaces/average.interface';
-import {Performances} from '@/shared/interfaces/performances.interface';
+import {User} from '../interfaces/user.interface';
+import {Activity} from '../interfaces/activity.interface';
+import {Average} from '../interfaces/average.interface';
+import {Performances} from '../interfaces/performances.interface';
+
 
 export default function useJsonDataService() {
 

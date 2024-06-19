@@ -37,12 +37,8 @@ export default function Dashboard() {
      * @param userId
      * @param isJsonSource
      */
-    const {user} = useGetUser(userId, isJsonSource)
+    const {user, loading} = useGetUser(userId, isJsonSource)
 
-    // if the user is not found, display the NotFound component
-    if (!user) {
-        return <NotFound/>
-    }
 
     /**
      * handleRevertJsonSource function to change the source of the data when button is clicked
@@ -57,27 +53,34 @@ export default function Dashboard() {
         {
             icon: Calories,
             text: "Calories",
-            value: `${user.keyData?.calorieCount.toLocaleString('en-US')}KCal`, // use toLocaleString with en-US style to insert come into the numbers
+            value: `${user?.keyData?.calorieCount.toLocaleString('en-US')}KCal`, // use toLocaleString with en-US style to insert come into the numbers
         }, {
             icon: Protein,
             text: "Protéines",
-            value: `${user.keyData?.proteinCount.toLocaleString('en-US')}g`,
+            value: `${user?.keyData?.proteinCount.toLocaleString('en-US')}g`,
         }, {
             icon: Carbs,
             text: "Glucides",
-            value: `${user.keyData?.carbohydrateCount.toLocaleString('en-US')}g`,
+            value: `${user?.keyData?.carbohydrateCount.toLocaleString('en-US')}g`,
         },
         {
             icon: Fat,
             text: "Lipides",
-            value: `${user.keyData?.carbohydrateCount.toLocaleString('en-US')}g` || '0',
+            value: `${user?.keyData?.carbohydrateCount.toLocaleString('en-US')}g` || '0',
         },
     ] as InfoProps[]
 
+    // if the status is loading, send loading component
+    if (loading) {
+        return (<div className={'main-content'}>
+            <button className={'change-source-button'} onClick={handleRevertJsonSource}>changer la source</button>
+            <Loading/>
+        </div>)
+    }
 
     return <div className={'main-content'}>
         <button className={'change-source-button'} onClick={handleRevertJsonSource}>changer la source</button>
-        {user.id ?
+        {user?.id ?
             <section>
                 <header>
                     <h1>Bonjour <strong> {user.userInfos.firstName} </strong></h1>
@@ -101,7 +104,7 @@ export default function Dashboard() {
                 </div>
             </section>
             :
-            <Loading/>
+            <NotFound/>
         }
     </div>
 }

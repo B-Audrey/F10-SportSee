@@ -17,15 +17,21 @@ const useGetUser = (userId: string, isJsonSource: boolean = false) => {
     /**
      * State to store the user data and the loading state
      */
-    const [state, setState] = useState({user : {} as User, loading: true} );
+    const [state, setState] = useState({user: {} as User, loading: true});
 
     /**
      * Fetch the user data from the API
      * @param id
      */
     const fetchUser = async (id: string) => {
-        const data = await getUserById(id);
-        setState( (prev) => ({...prev, user: data}))
+        try {
+            const data = await getUserById(id);
+            if (data) {
+                setState((prev) => ({...prev, user: data}))
+            }
+        } catch (error) {
+            setState((prev) => ({...prev, user: {} as User}))
+        }
     }
 
     /**
@@ -43,21 +49,21 @@ const useGetUser = (userId: string, isJsonSource: boolean = false) => {
      * the loading state is set to true when the user is being fetched
      */
     useEffect(() => {
-        if(userId && !isJsonSource) {
-            setState( (prev) => ({...prev, loading: true}))
+        setState((prev) => ({user: {} as User, loading: true}))
+        if (userId && !isJsonSource) {
             fetchUser(userId)
         }
-        if(userId && isJsonSource) {
-            setState( (prev) => ({...prev, loading: true}))
+        if (userId && isJsonSource) {
             fetchLocalUser(userId)
         }
+
     }, [userId, isJsonSource])
 
     /**
      * useEffect to set the loading state to false when the user data is fetched
      */
     useEffect(() => {
-        if (state.user?.id) {
+        if (state.user) {
             setState( (prev) => ({...prev, loading: false}))
         }
     }, [state.user]);
