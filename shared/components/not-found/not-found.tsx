@@ -6,8 +6,8 @@ import './not-found.scss';
 export default function NotFound() {
     return (
         <div className="not-found">
-            <div className="">Oups... 404 😳</div>
-            <div className="">User not found</div>
+            <p>Oups...</p>
+            <p>Une erreur est survenue, veuillez recommencer ultérieurement</p>
         </div>
     )
 }

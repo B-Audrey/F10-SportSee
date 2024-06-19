@@ -9,7 +9,7 @@ import './globals.scss';
  */
 const roboto = Roboto({
     subsets: ['latin'],
-    weight: ['400', '500'],
+    weight: ['300', '400', '500'],
     display: 'swap',
 })
 
